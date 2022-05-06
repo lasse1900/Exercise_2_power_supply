@@ -1,10 +1,12 @@
 import requests
 import re
+import time, datetime
 # http://admin:12345678@localhost:5000/SetCmd?CMD=GetPower
 
 class commands(object):
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
+
     def __init__(self, ip='localhost:5000'):
         self.ip_address = ip
         self.query = {}
@@ -31,7 +33,7 @@ class commands(object):
                       self.passw,
                       self.ip_address,
                       cmd)
-        print (url)
+
         if cmd == 'SetPower':
             self.form_query(state, cmd, port)
             self.req = requests.get(url, params=self.query)
