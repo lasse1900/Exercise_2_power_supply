@@ -29,17 +29,18 @@ Pip install flask
 pip install flask-HTTPAuth
 
 
-window_2 Flask server
+# Start first the server with Git Bash here (new window):
+[rps_server =  your file name]
+[rf_client =  your file name]
 
+window 1 Flask server
 source virenvs/virtual1/Scripts/activate
-cd exercise2/ex2/kyttala
-export FLASK_APP=rps_kyttala.py
+cd exercise2/ex2/user_dir
+export FLASK_APP=rps_server.py
 flask run
 
-(open on ignonito window)
-
-window_1
-
+window 2 client
+# Start secondly the client with Git Bash here (new window):
 source virenvs/virtual1/Scripts/activate
-cd exercise2/ex2/kyttala
-robot rf_kyttala.robot
+cd exercise2/ex2/user_dir
+robot rf_client.robot
