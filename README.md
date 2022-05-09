@@ -39,8 +39,8 @@ cd exercise2/ex2/user_dir
 export FLASK_APP=rps_server.py
 flask run
 
-window 2 client
 # Start secondly the client with Git Bash here (new window):
+window 2 client
 source virenvs/virtual1/Scripts/activate
 cd exercise2/ex2/user_dir
 robot rf_client.robot
