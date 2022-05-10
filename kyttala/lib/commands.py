@@ -45,11 +45,3 @@ class commands(object):
         else:
             return False
 
-        return self.req.text
-
-
-# c = commands('localhost:5000')
-
-# c.send_cmds('SetPower', 2, 1)
-# c.send_cmds('SetPower', 3, 1)
-# print c.send_cmds('GetPower')

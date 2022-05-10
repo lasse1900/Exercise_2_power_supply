@@ -1,7 +1,18 @@
 *** Settings ***
 Library    lib/commands.py
 
+# TODO delay function & time measurement
+# TODO using loop to change statges
+
+*** Variables ***
+@{PINS}=    ['P60', 'P61', 'P62', 'P63', 'P64','P65']
+
 *** Test Cases ***
+Loop for each pin
+    FOR    ${item}    IN    @{PINS}
+        Log    ${item}
+    END
+
 Turn on Power to transient state on all supplies remotely
      ${out}=    RPS send commands     SetPower  0  0.5
      ${out}=    RPS send commands     SetPower  1  0.5
@@ -11,7 +22,7 @@ Turn on Power to transient state on all supplies remotely
      ${out}=    RPS send commands     SetPower  5  0.5
 
 
-Verify power in transient stage on on all supplies
+Verify power is in transient stage on all supplies
     ${out}=     RPS get power    GetPower
     should contain    ${out}  P60=0.5
     should contain    ${out}  P61=0.5
@@ -28,7 +39,7 @@ Turn on Power on all supplies remotely
     ${out}=    RPS send commands     SetPower  4  1
     ${out}=    RPS send commands     SetPower  5  1
 
-Verify power in on on all supplies
+Verify power is turned-on on all supplies
     ${out}=     RPS get power    GetPower
     should contain    ${out}  P60=1
     should contain    ${out}  P61=1
